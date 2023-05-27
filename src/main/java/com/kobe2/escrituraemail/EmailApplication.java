@@ -1,4 +1,4 @@
-package com.kobe2.email;
+package com.kobe2.escrituraemail;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

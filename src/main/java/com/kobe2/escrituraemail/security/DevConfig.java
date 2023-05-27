@@ -1,4 +1,4 @@
-package com.kobe2.email.security;
+package com.kobe2.escrituraemail.security;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
