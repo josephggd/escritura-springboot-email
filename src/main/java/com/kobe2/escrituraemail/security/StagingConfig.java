@@ -1,6 +1,6 @@
 package com.kobe2.escrituraemail.security;
 
-import com.kobe2.escrituraauth.enums.Authority;
+import com.kobe2.escrituraemail.enums.Authority;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
