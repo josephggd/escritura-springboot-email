@@ -3,6 +3,7 @@ package com.kobe2.escrituraemail.security;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
@@ -11,10 +12,12 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
+@PropertySource("classpath:application-dev.properties")
 @ConditionalOnProperty(name="security.enabled", havingValue = "false")
 public class DevConfig {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity https) throws Exception {
+        System.out.println("PARTY");
         https.authorizeHttpRequests(auth-> auth
                 .requestMatchers("/**")
                 .permitAll());

@@ -1,24 +1,26 @@
 package com.kobe2.escrituraemail.services;
 
-import com.kobe2.escrituraemail.config.EmailProps;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 @Service
+@PropertySource("classpath:application.properties")
 public class EmailService {
+    @Value("custom.mail.user")
+    private String user;
     @Autowired
     private JavaMailSender emailSender;
-    @Autowired
-    private EmailProps emailProps;
     private void sendSimpleMessage(
             String to,
             String subject,
             String text
     ) {
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom(emailProps.user);
+        message.setFrom(this.user);
         message.setTo(to);
         message.setSubject(subject);
         message.setText(text);
